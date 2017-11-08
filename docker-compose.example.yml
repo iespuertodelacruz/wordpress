@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+    nginx:
+        image: nginx
+        ports:
+            - 5000:80
+        volumes:
+            - ./wordpress:/usr/share/nginx/html/wordpress
+            - ./nginx.conf:/etc/nginx/conf.d/wordpress.conf
+    php:
+        build: .
+        volumes:
+            - ./wordpress:/usr/share/nginx/html/wordpress
+    mysql:
+        image: mysql
+        environment:
+            - MYSQL_DATABASE=wordpress
+            - MYSQL_ROOT_PASSWORD=xxxxxxxx
+        volumes:
+            - ./mysql:/var/lib/mysql

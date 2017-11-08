@@ -1,0 +1,7 @@
+*.swp
+docker-compose.yml
+wordpress.php
+nginx.conf
+nginx.reverse_proxy.conf
+wordpress
+mysql
